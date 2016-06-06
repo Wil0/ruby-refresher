@@ -238,6 +238,7 @@ end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
+  File.read(file_path).split.size
 end
 
 # --- tougher ones ---
@@ -246,6 +247,7 @@ end
 # called call_method_from_string('foobar')
 # the method foobar should be invoked
 def call_method_from_string(str_method)
+  self.str_method
 end
 
 # return true if the date is a uk bank holiday for 2014
@@ -259,6 +261,13 @@ end
 # e.g. january 1st, will next be a friday in 2016
 # return the day as a capitalized string like 'Friday'
 def your_birthday_is_on_a_friday_in_the_year(birthday)
+  i = birthday.wday
+  result = birthday.strftime("%Y").to_i
+  while i < 5
+    result += 1
+    i += 1
+  end
+  result
 end
 
 # in a file, total the number of times words of different lengths
